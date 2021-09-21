@@ -20,7 +20,7 @@ class People extends Component {
         return x.name.toUpperCase().startsWith(src.toUpperCase())
       })
       console.log(list)
-      if (list.length == 0) {
+      if (list.length === 0) {
         list = [];
       }
     }
@@ -53,7 +53,7 @@ class People extends Component {
                 <input type="text" className="form-control" onChange={this.handleChange}></input>
               </div>
               <div className={`alert alert-warning alert-dismissible fade 
-                ${this.state.search && this.state.filtered.length == 0 ? "show" : ""}`}
+                ${this.state.search && this.state.filtered.length === 0 ? "show" : ""}`}
                 role="alert">
                 No results
               </div>

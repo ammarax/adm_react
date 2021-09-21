@@ -1,5 +1,4 @@
-import React, { Component, useState } from 'react';
-import moment from 'moment';
+import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import Button from '@restart/ui/esm/Button';
 import axios from 'axios';
