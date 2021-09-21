@@ -20,9 +20,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ADM_react</h1>
-      <div>
-        <People value={people} ></People>
+      <div className="container">
+        <div className="row col">
+          <h1 >ADM_react</h1>
+        </div>
+      </div>
+      <div className="container" >
+        <div className="row">
+          <div className="col">
+            <People value={people} ></People>
+          </div>
+        </div>
       </div>
     </div>
   );

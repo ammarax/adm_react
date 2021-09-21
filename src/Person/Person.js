@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
+import Planet from '../Planet/Planet';
 
 class Person extends Component {
 
-  constructor(props) {
-    super(props);
-  }
+  show = false;
 
   //to prototype the table
   genericRenderList(obj) {
@@ -16,7 +14,7 @@ class Person extends Component {
       if (obj.hasOwnProperty(prop)
         && type !== "function"
         && type !== "array"
-        && type != "object") {
+        && type !== "object") {
         var val = (<td> {obj[prop]} </td>);
         renderedList.push(val)
       }
@@ -34,13 +32,15 @@ class Person extends Component {
       // return <tr>{this.genericRenderList(obj)}</tr>;
 
       return (
-        <tr>
+        <tr key={obj.id}>
           <td>{obj.name}</td>
           <td>{obj.height}</td>
           <td>{obj.mass}</td>
           <td>{this.dateFormat(obj.created)}</td>
           <td>{this.dateFormat(obj.edited)}</td>
-          <td><a>{obj.homeworld}</a></td>
+          <td>
+            <Planet show={this.show} url={obj.homeworld}></Planet>
+          </td>
         </tr>
       )
     } else {
