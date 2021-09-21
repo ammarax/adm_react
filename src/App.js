@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import axios from 'axios';
-import People from './People/People';
+import People from './Components/People/People';
 
 // const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
 
