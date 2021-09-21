@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import axios from 'axios';
+import People from './People/People';
+
+// const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
 
 function App() {
+
+  const baseUrl = 'https://swapi.dev/api/people';
+  const [people, setPeople] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get(baseUrl).then((response) => {
+      setPeople(response.data.results);
+    });
+  }, []);
+
+  if (!people) return null;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>ADM_react</h1>
+      <div>
+        <People value={people} ></People>
+      </div>
     </div>
   );
 }
